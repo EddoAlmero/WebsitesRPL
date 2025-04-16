@@ -443,13 +443,20 @@
             });
         </script>
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-        <script src="js/script.js"></script>
-        <script type="module">
-            import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
-            Chatbot.init({
-                chatflowid: "5bf952e0-eb56-443e-8c57-97ff55a974a8",
-                apiHost: "https://flowise-host-wisatasurabaya-production.up.railway.app",
-            })
-        </script>
+<script src="js/script.js"></script>
+
+<script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+
+    Chatbot.init({
+        chatflowid: "5bf952e0-eb56-443e-8c57-97ff55a974a8",
+        apiHost: "https://flowise-host-wisatasurabaya-production.up.railway.app",
+        theme: {
+            title: "Tanya Wisata Surabaya",
+            chatbotGreeting: "Halo, apa yang bisa saya bantu seputar Kota Surabaya?",
+            primaryColor: "#0077cc" // You can change this to match your website theme
+        }
+    })
+</script>
     </body>
 </html>
