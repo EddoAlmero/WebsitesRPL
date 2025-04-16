@@ -368,8 +368,7 @@ section {
 }
 
 #about_us {
-  background: url("https://awe365.com/wp-content/uploads/2013/07/adventure-sports-hang-gliding-flickrcc-image-by-Steve-Slater.jpg");
-  width: 100%;
+  background: black;
   height: 630px;
   background-repeat: no-repeat;
   background-size: cover;
