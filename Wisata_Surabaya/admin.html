@@ -1,61 +1,118 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Wisata Surabaya</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f9;
-            margin: 0;
-            padding: 20px;
-        }
-        .login-form {
-            max-width: 400px;
-            margin: 100px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button {
-            background: #fc036b;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      background-color: #ffffff;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+    }
+
+    .left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+    }
+
+    .left img {
+      width: 70%;
+      max-width: 400px;
+    }
+
+    .right {
+      flex: 1;
+      background-color: #0077ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-box {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 360px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+
+    .form-box h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .form-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 25px;
+      border: 1px solid #ccc;
+      padding-left: 40px;
+    }
+
+    .form-box button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 25px;
+      border: none;
+      background-color: #0077ff;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .form-footer a {
+      color: #0077ff;
+      text-decoration: none;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <div class="login-form">
-        <h2>Login Admin</h2>
-        <form id="loginForm">
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Masuk</button>
-        </form>
+  <div class="container">
+    <div class="left">
+      <img src="https://undraw.co/api/illustrations/2a7f313d-d95a-4222-8e2d-b2f9c7d3434e" alt="Login Illustration">
     </div>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const password = document.getElementById('password').value;
-
-            if (password === 'surabaya123') {
-                window.location.href = 'edit-content.html';
-            } else {
-                alert('Password salah!');
-            }
-        });
-    </script>
+    <div class="right">
+      <div class="form-box">
+        <h2>Hello!<br>Sign Up to Get Started</h2>
+        <input type="email" placeholder="Email Address" />
+        <input type="password" placeholder="Password" />
+        <button type="submit">Login</button>
+        <div class="form-footer">
+          <a href="#">Forgot Password</a>
+          <a href="#">Register</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
