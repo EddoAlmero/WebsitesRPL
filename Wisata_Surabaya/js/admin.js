@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((userCredential) => {
         const user = userCredential.user;
         // Redirect logic
-        if (email === "admin@example.com") {
+        if (email === "admin@wisatasurabaya.com") {
           window.location.href = "admin-dashboard.html";
         } else {
           window.location.href = "user-dashboard.html";
