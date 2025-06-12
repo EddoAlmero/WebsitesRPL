@@ -167,3 +167,42 @@
     text-align: justify;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .header-content h2 {
+    font-size: 18px;
+  }
+
+  .header-content h1 {
+    font-size: 28px;
+  }
+
+  .header-content {
+    padding: 2rem;
+    margin-bottom: 80px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .row .col {
+    width: 90%;
+    text-align: center;
+  }
+
+  .col p {
+    padding: 0 10px;
+  }
+}
+
+.ctn, .back-btn {
+  font-size: 1em;
+  padding: 14px 30px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .ctn, .back-btn {
+    font-size: 1em;
+    padding: 12px 25px;
+  }
+}

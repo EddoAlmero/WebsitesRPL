@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monumen Kapal Selam | Wisata Surabaya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Modern Detail Page Styles */
+        .detail-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('../img/KapalSelam-bg.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .detail-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .detail-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .detail-gallery img:hover {
+            transform: scale(1.03);
+        }
+        
+        .detail-info {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .info-icon {
+            color: #fc036b;
+            margin-right: 10px;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background: #fc036b;
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+        
+        .back-btn:hover {
+            background: #d9025b;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(252,3,107,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-hero {
+                height: 40vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (salin dari index.html) -->
+    <nav class="navbar glass">
+        <!-- ... konten navbar sama ... -->
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="detail-hero">
+        <div class="hero-content">
+            <h1 id="detail-title">Monumen Kapal Selam</h1>
+            <div class="line" style="margin: 15px auto; background: white;"></div>
+            <p class="hero-subtitle">Pengalaman Menyelami Sejarah Maritim Indonesia</p>
+        </div>
+    </section>
+
+    <div class="detail-container">
+        <div class="detail-grid">
+            <div class="detail-gallery">
+                <img id="main-image" src="./img/KapalSelam.jpg" alt="Monumen Kapal Selam">
+                <img src="./img/kapal-selam-2.jpeg" alt="Interior Kapal">
+                <img src="./img/kapal-selam-3.jpg" alt="Area Museum">
+                <img src="./img/kapal-selam-4.jpeg" alt="Sungai Kalimas">
+            </div>
+            
+            <div class="detail-info">
+                <div class="info-card">
+                    <h2 style="color: #fc036b; margin-bottom: 15px;">Deskripsi</h2>
+                    <p id="detail-description" style="line-height: 1.8;">Monumen Kapal Selam Surabaya adalah museum dari KRI Pasopati 410, menghadirkan pengalaman menjelajahi kapal selam asli serta wisata edukatif tentang sejarah maritim Indonesia di tepi Sungai Kalimas.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-info-circle info-icon"></i>Informasi Lengkap</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt info-icon"></i> <strong>Lokasi:</strong> Jl. Pemuda No.39, Surabaya</li>
+                        <li style="margin-bottom: 10px;"><i class="far fa-clock info-icon"></i> <strong>Jam Buka:</strong> 08.00 - 21.00 WIB (Setiap Hari)</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-ticket-alt info-icon"></i> <strong>Harga Tiket:</strong> 
+                            <ul style="margin-top: 5px; padding-left: 20px;">
+                                <li>Dewasa: Rp15.000</li>
+                                <li>Anak-anak: Rp10.000</li>
+                                <li>Pelajar: Rp7.500</li>
+                            </ul>
+                        </li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-utensils info-icon"></i> <strong>Fasilitas:</strong> 
+                            <span class="facility-tag">Museum</span>
+                            <span class="facility-tag">Area Foto</span>
+                            <span class="facility-tag">Pusat Oleh-oleh</span>
+                            <span class="facility-tag">Toilet</span>
+                            <span class="facility-tag">Area Parkir</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-star info-icon"></i>Highlight</h3>
+                    <ul style="padding-left: 20px;">
+                        <li>Berkeliling di dalam kapal selam asli</li>
+                        <li>Edukasi sejarah maritim Indonesia</li>
+                        <li>Spot foto unik dengan background kapal selam</li>
+                        <li>Lokasi strategis di pusat kota</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Kembali ke Beranda
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Load data dari localStorage jika ada
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTitle = localStorage.getItem('wisata_title_1');
+            const savedDesc = localStorage.getItem('wisata_text_1');
+            const savedImg = localStorage.getItem('wisata_img_1');
+            
+            if (savedTitle) document.getElementById('detail-title').textContent = savedTitle;
+            if (savedDesc) document.getElementById('detail-description').textContent = savedDesc;
+            if (savedImg) document.getElementById('main-image').src = savedImg;
+        });
+    </script>
+</body>
+</html>

@@ -114,7 +114,7 @@
                             Monumen Kapal Selam Surabaya adalah museum dari KRI Pasopati 410, menghadirkan pengalaman menjelajahi 
                             kapal selam asli serta wisata edukatif tentang sejarah maritim Indonesia di tepi Sungai Kalimas.
                         </p>
-                        <a href="#" class="ctn">Selengkapnya</a>
+                        <a href="kapal-selam.html" class="ctn">Selengkapnya</a>
                     </article>
                     <article class="card col">
                         <img src="./img/KBS.jpg" />
@@ -425,12 +425,12 @@
         <!-- up scroll -->
         <!-- end -->
         <!--footer-->
+        <!-- Tambahkan di section footer -->
         <section class="footer">
-            <span
-                >Created By Kelompok 3 RPL &#169; 2025 All rights
-                reserved.</span
-            >
-           
+            <span>Created By Kelompok 3 RPL &#169; 2025 All rights reserved.</span>
+            <div style="margin-top: 10px;">
+            <a href="admin.html" style="color: #fc036b; font-size: 0.8em;">Login Admin</a>
+            </div>
         </section>
         <!--footer-->
 
@@ -447,9 +447,56 @@
         <script type="module">
             import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
             Chatbot.init({
-                chatflowid: "e90072e7-d6c3-45a2-b4de-a5265176059f",
-                apiHost: "https://flowise-host-wisatasurabaya.up.railway.app",
+                chatflowid: "04e900e2-1dc6-49ce-b911-8e1e44310c51",
+                apiHost: "https://flowise-host-wisatasurabaya-production.up.railway.app",
             })
         </script>
+          <script>
+            
+            document.addEventListener('DOMContentLoaded', function() {
+    // Ambil semua card
+    const cards = document.querySelectorAll('.card');
+    
+    cards.forEach((card, index) => {
+        const cardNum = index + 1;
+        
+        // Load judul
+        const savedTitle = localStorage.getItem(`wisata_title_${cardNum}`);
+        if (savedTitle) {
+            card.querySelector('h4').textContent = savedTitle;
+        }
+        
+        // Load deskripsi
+        const savedText = localStorage.getItem(`wisata_text_${cardNum}`);
+        if (savedText) {
+            card.querySelector('p').textContent = savedText;
+        }
+        
+        // Load gambar
+        const savedImg = localStorage.getItem(`wisata_img_${cardNum}`);
+        if (savedImg) {
+            card.querySelector('img').src = savedImg;
+        }
+    });
+});
+        </script>
+        <!-- Tambahkan sebelum </body> -->
+        <a href="admin.html" class="admin-float">
+        <img src="img/admin.png" width="30" alt="Admin">
+</a>
+
+<style>
+.admin-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: #fc036b;
+    padding: 10px;
+    border-radius: 50%;
+    z-index: 99;
+}
+</style>
+<button onclick="topFunction()" id="upbtn" title="Kembali ke atas" class="arrow"></button>
+
     </body>
 </html>

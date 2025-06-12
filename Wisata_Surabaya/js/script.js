@@ -130,4 +130,13 @@ function updateNav() {
 }
 
 window.addEventListener("scroll", updateNav);
+// Tutup menu setelah klik salah satu link di mode mobile
+document.querySelectorAll('.nav-links li a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (navlinks.classList.contains('mobile-menu')) {
+        navlinks.classList.remove('mobile-menu');
+      }
+    });
+  });
+  
 

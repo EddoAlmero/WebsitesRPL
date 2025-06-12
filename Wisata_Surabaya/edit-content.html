@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Konten - Wisata Surabaya</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .card {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .preview-img {
+            max-width: 200px;
+            height: auto;
+            margin: 10px 0;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 100px;
+        }
+        button, .back-btn {
+            background: #fc036b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        .back-btn {
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Konten Destinasi</h1>
+        
+        <!-- Card 1: Monumen Kapal Selam -->
+        <div class="card">
+            <h2>Monumen Kapal Selam</h2>
+            <input type="text" id="title1" class="title-input" placeholder="Judul">
+            <img id="preview1" class="preview-img" src="../img/KapalSelam.jpg">
+            <input type="file" id="image1" accept="image/*">
+            <textarea id="text1" placeholder="Deskripsi"></textarea>
+        </div>
+
+        <!-- Card 2: Kebun Binatang Surabaya -->
+        <div class="card">
+            <h2>Kebun Binatang Surabaya</h2>
+            <input type="text" id="title2" class="title-input" placeholder="Judul">
+            <img id="preview2" class="preview-img" src="../img/KBS.jpg">
+            <input type="file" id="image2" accept="image/*">
+            <textarea id="text2" placeholder="Deskripsi"></textarea>
+        </div>
+
+        <!-- Card 3: Surabaya North Quay -->
+        <div class="card">
+            <h2>Surabaya North Quay</h2>
+            <input type="text" id="title3" class="title-input" placeholder="Judul">
+            <img id="preview3" class="preview-img" src="../img/img2.jpg">
+            <input type="file" id="image3" accept="image/*">
+            <textarea id="text3" placeholder="Deskripsi"></textarea>
+        </div>
+
+        <!-- Tombol Simpan Semua -->
+        <button id="saveAllBtn">Simpan Semua Perubahan</button>
+        <a href="index.html" class="back-btn">Kembali ke Halaman Utama</a>
+    </div>
+
+    <script>
+        // Load data dari localStorage ke form saat halaman dibuka
+        document.addEventListener('DOMContentLoaded', function() {
+            for (let i = 1; i <= 3; i++) {
+                document.getElementById('title'+i).value = localStorage.getItem('wisata_title_'+i) || '';
+                document.getElementById('text'+i).value = localStorage.getItem('wisata_text_'+i) || '';
+                const imgData = localStorage.getItem('wisata_img_'+i);
+                if (imgData) document.getElementById('preview'+i).src = imgData;
+            }
+        });
+
+        // Preview gambar saat dipilih
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function(e) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const previewId = 'preview' + input.id.replace('image', '');
+                    document.getElementById(previewId).src = event.target.result;
+                };
+                if (e.target.files[0]) reader.readAsDataURL(e.target.files[0]);
+            });
+        });
+
+        // Simpan semua perubahan
+        document.getElementById('saveAllBtn').addEventListener('click', function() {
+            let total = 3;
+            let imgPromises = [];
+            for (let i = 1; i <= total; i++) {
+                localStorage.setItem('wisata_title_' + i, document.getElementById('title'+i).value);
+                localStorage.setItem('wisata_text_' + i, document.getElementById('text'+i).value);
+                const imgInput = document.getElementById('image'+i);
+                if (imgInput.files[0]) {
+                    imgPromises.push(new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            localStorage.setItem('wisata_img_' + i, e.target.result);
+                            resolve();
+                        };
+                        reader.readAsDataURL(imgInput.files[0]);
+                    }));
+                }
+            }
+            // Tunggu semua gambar selesai disimpan
+            Promise.all(imgPromises).then(() => {
+                alert('Semua perubahan berhasil disimpan!');
+            });
+        });
+    </script>
+</body>
+</html>
