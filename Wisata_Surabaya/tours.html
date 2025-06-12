@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours Detail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: white;
+        }
+
+        .tours {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tours::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tours-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .tours-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .tours-subtitle {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .line {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .tours-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .schedule-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .schedule-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .schedule-item {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .schedule-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .schedule-item:hover::before {
+            opacity: 1;
+        }
+
+        .schedule-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .schedule-date {
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .schedule-title-item {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .schedule-desc {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .gallery-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            height: 500px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-text {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .ctn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ctn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .ctn:hover::before {
+            left: 100%;
+        }
+
+        .ctn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .tours-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .tours-title {
+                font-size: 2.2rem;
+            }
+            
+            .schedule-section {
+                padding: 25px;
+            }
+            
+            .gallery-section {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="tours" id="tours">
+        <div class="container">
+            <div class="tours-header">
+                <h1 class="tours-title">Tur & Destinasi</h1>
+                <div class="line"></div>
+                <p class="tours-subtitle">Jelajahi keindahan Surabaya melalui tur-tur ekslusif yang telah kami siapkan khusus untuk Anda</p>
+            </div>
+            
+            <div class="tours-content">
+                <div class="schedule-section">
+                    <h2 class="schedule-title">
+                        <i class="fas fa-calendar-alt"></i>
+                        Jadwal Tur Terbaru
+                    </h2>
+                    
+                    <div class="schedule-item">
+                        <div class="schedule-date">
+                            <i class="fas fa-clock"></i>
+                            Sabtu, 6 April 2024
+                        </div>
+                        <div class="schedule-title-item">Jelajah Sejarah</div>
+                        <div class="schedule-desc">Eksplorasi mendalam di Tugu Pahlawan dan Museum 10 November untuk memahami sejarah perjuangan kemerdekaan Indonesia</div>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="schedule-date">
+                            <i class="fas fa-clock"></i>
+                            Minggu, 14 April 2024
+                        </div>
+                        <div class="schedule-title-item">Petualangan Satwa</div>
+                        <div class="schedule-desc">Pengalaman seru bersama keluarga di Kebun Binatang Surabaya dengan program edukasi konservasi satwa</div>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="schedule-date">
+                            <i class="fas fa-clock"></i>
+                            Rabu, 24 April 2024
+                        </div>
+                        <div class="schedule-title-item">Pelayaran Senja</div>
+                        <div class="schedule-desc">Nikmati sunset romantis dan relaksasi di Surabaya North Quay dengan pemandangan kota yang memukau</div>
+                    </div>
+                    
+                    <a href="#" class="ctn">
+                        <i class="fas fa-arrow-right"></i>
+                        Selengkapnya
+                    </a>
+                </div>
+                
+                <div class="gallery-section">
+                    <div class="gallery-item">
+                        <img src="./img/TamanBungkul.png" alt="Taman Bungkul">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Taman Bungkul</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./img/Museum10Nopember.jpg" alt="Museum 10 November">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Museum 10 November</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./img/Atlantis.jpg" alt="Atlantis Land">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Atlantis Land</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./img/TunjunganPlaza.jpeg" alt="Tunjungan Plaza">
+                        <div class="gallery-overlay">
+                            <div class="gallery-text">Tunjungan Plaza</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Kembali ke Beranda
+            </a>
+        </div>
+    </div>
+    </section>
+</body>
+</html>
