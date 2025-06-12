@@ -1,11 +1,11 @@
 // Firebase config
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCPcnk4E3zz7-tUTF16hz4FFVvLr3KLMNg",
+  authDomain: "wisata-surabaya-652ff.firebaseapp.com",
+  projectId: "wisata-surabaya-652ff",
+  storageBucket: "wisata-surabaya-652ff.firebasestorage.app",
+  messagingSenderId: "205207573499",
+  appId: "1:205207573499:web:0ff0a5248ab4563ea3315e"
 };
 
 // Initialize Firebase
