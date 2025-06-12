@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebun Binatang Surabaya | Wisata Surabaya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Modern Detail Page Styles */
+        .detail-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('../img/kebunbin-bg.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        
+        .detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .detail-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .detail-gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .detail-gallery img:hover {
+            transform: scale(1.03);
+        }
+        
+        .detail-info {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+        
+        .info-icon {
+            color: #2ecc71;
+            margin-right: 10px;
+        }
+        
+        .facility-tag {
+            display: inline-block;
+            background: #e8f5e8;
+            color: #2ecc71;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin: 2px;
+            font-weight: 500;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background: #2ecc71;
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 30px;
+        }
+        
+        .back-btn:hover {
+            background: #27ae60;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46,204,113,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .detail-hero {
+                height: 40vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (salin dari index.html) -->
+    <nav class="navbar glass">
+        <!-- ... konten navbar sama ... -->
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="detail-hero">
+        <div class="hero-content">
+            <h1 id="detail-title">Kebun Binatang Surabaya</h1>
+            <div class="line" style="margin: 15px auto; background: white;"></div>
+            <p class="hero-subtitle">Petualangan Menakjubkan Bersama Satwa Eksotis</p>
+        </div>
+    </section>
+
+    <div class="detail-container">
+        <div class="detail-grid">
+            <div class="detail-gallery">
+                <img id="main-image" src="./img/kebunbin1.jpg" alt="Kebun Binatang Surabaya">
+                <img src="./img/kebunbin2.jpg" alt="Koleksi Satwa">
+                <img src="./img/kebunbin3.jpg" alt="Area Bermain">
+                <img src="./img/kebunbin4.jpg" alt="Wahana Edukasi">
+            </div>
+            
+            <div class="detail-info">
+                <div class="info-card">
+                    <h2 style="color: #2ecc71; margin-bottom: 15px;">Deskripsi</h2>
+                    <p id="detail-description" style="line-height: 1.8;">Kebun Binatang Surabaya adalah destinasi wisata keluarga yang menampilkan berbagai koleksi satwa eksotis dari dalam dan luar negeri. Tempat ini menawarkan pengalaman edukatif dan rekreatif yang menyenangkan untuk semua usia.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-info-circle info-icon"></i>Informasi Lengkap</h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;"><i class="fas fa-map-marker-alt info-icon"></i> <strong>Lokasi:</strong> Jl. Setail No.1, Darmo, Surabaya</li>
+                        <li style="margin-bottom: 10px;"><i class="far fa-clock info-icon"></i> <strong>Jam Buka:</strong> 08.00 - 16.00 WIB (Setiap Hari)</li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-ticket-alt info-icon"></i> <strong>Harga Tiket:</strong> 
+                            <ul style="margin-top: 5px; padding-left: 20px;">
+                                <li>Dewasa: Rp15.000</li>
+                                <li>Anak-anak: Rp15.000</li>
+                                <li>Pelajar: Rp12.000</li>
+                            </ul>
+                        </li>
+                        <li style="margin-bottom: 10px;"><i class="fas fa-utensils info-icon"></i> <strong>Fasilitas:</strong> 
+                            <span class="facility-tag">Area Satwa</span>
+                            <span class="facility-tag">Playground</span>
+                            <span class="facility-tag">Food Court</span>
+                            <span class="facility-tag">Toilet</span>
+                            <span class="facility-tag">Area Parkir</span>
+                            <span class="facility-tag">Mushola</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-star info-icon"></i>Highlight</h3>
+                    <ul style="padding-left: 20px;">
+                        <li>Koleksi satwa lengkap dari berbagai benua</li>
+                        <li>Wahana edukasi untuk anak-anak</li>
+                        <li>Show satwa yang menarik dan mendidik</li>
+                        <li>Area bermain dan picnic yang nyaman</li>
+                        <li>Program konservasi dan perlindungan satwa</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Kembali ke Beranda
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Load data dari localStorage jika ada
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTitle = localStorage.getItem('wisata_title_2');
+            const savedDesc = localStorage.getItem('wisata_text_2');
+            const savedImg = localStorage.getItem('wisata_img_2');
+            
+            if (savedTitle) document.getElementById('detail-title').textContent = savedTitle;
+            if (savedDesc) document.getElementById('detail-description').textContent = savedDesc;
+            if (savedImg) document.getElementById('main-image').src = savedImg;
+        });
+    </script>
+</body>
+</html>
