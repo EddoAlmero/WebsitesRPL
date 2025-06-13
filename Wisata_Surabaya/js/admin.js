@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((userCredential) => {
         alert("Login berhasil!");
         if (email === "admin@wisatasurabaya.com") {
-          window.location.href = "Wisata_Surabaya/adminkit-main/adminkit-main/static/index.html";
+          window.location.href = "adminkit-main/static/index.html";
         } else {
           window.location.href = "user-dashboard.html";
         }
