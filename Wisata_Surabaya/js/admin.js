@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     auth.signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         alert("Login berhasil!");
-        if (email === "admin@example.com") {
+        if (email === "admin@wisatasurabaya.com") {
           window.location.href = "admin-dashboard.html";
         } else {
           window.location.href = "user-dashboard.html";
