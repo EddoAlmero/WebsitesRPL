@@ -1,20 +1,35 @@
-// Import the functions you need from the SDKs you need
-  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js';
-  import { getAuth } from 'https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js';
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+// Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCPcnk4E3zz7-tUTF16hz4FFVvLr3KLMNg",
+  authDomain: "wisata-surabaya-652ff.firebaseapp.com",
+  projectId: "wisata-surabaya-652ff",
+  storageBucket: "wisata-surabaya-652ff.appspot.com", // FIXED typo
+  messagingSenderId: "205207573499",
+  appId: "1:205207573499:web:0ff0a5248ab4563ea3315e"
+};
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCPcnk4E3zz7-tUTF16hz4FFVvLr3KLMNg",
-    authDomain: "wisata-surabaya-652ff.firebaseapp.com",
-    projectId: "wisata-surabaya-652ff",
-    storageBucket: "wisata-surabaya-652ff.firebasestorage.app",
-    messagingSenderId: "205207573499",
-    appId: "1:205207573499:web:0ff0a5248ab4563ea3315e",
-  };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+document.addEventListener("DOMContentLoaded", function () {
+  const loginButton = document.querySelector("button");
+
+  loginButton.addEventListener("click", function () {
+    const email = document.querySelector("input[type='email']").value;
+    const password = document.querySelector("input[type='password']").value;
+
+    auth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        alert("Login berhasil!");
+        if (email === "admin@example.com") {
+          window.location.href = "admin-dashboard.html";
+        } else {
+          window.location.href = "user-dashboard.html";
+        }
+      })
+      .catch((error) => {
+        alert("Login gagal: " + error.message);
+      });
+  });
+});
