@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       })
       .catch((error) => {
-        alert("Login gagal: " + error.message);
+        alert("Login gagal: Username atau Password Salah " + error.message);
       });
   });
 });
